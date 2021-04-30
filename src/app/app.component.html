@@ -1,0 +1,106 @@
+<router-outlet></router-outlet>
+<div class="container text-center">
+  <h1>{{title}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-hero">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+    </div>
+    <div style='margin-left: auto'><button class="btn btn-lg btn-outline-primary"
+(click)="open()"> Add New Hero</button>
+</div>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Hero Name</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes | filter:searchText">
+        <td>{{hero.id}}</td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.country}}</td>
+        <td><button class="btn btn-lg btn-outline-primary"
+          (click)="updateOpenModel(hero)">{{hero.name}}</button></td>
+      </tr>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+
+
+<!-- <div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title"
+        id="modal-basic-title">
+        Add Hero
+      </h4>
+      <button type="button" class="close"
+          aria-label="Close" (click)=
+          "modal.dismiss('Cross click')">
+  
+        <span aria-hidden="true">
+          ×
+        </span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="hero.name">
+            Name of Hero
+          </label>
+          <div class="input-group">
+            <input id="hero_name"
+              class="form-control"
+              placeholder="Enter Hero Name Here"
+              name="hero_name" 
+              >
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="dateOfBirth">
+            Date of birth
+          </label>
+          <div class="input-group">
+            <input id="dateOfBirth"
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dp" ngbDatepicker
+              #dp="ngbDatepicker">
+  
+            <div class="input-group-append">
+              <button class="btn
+                btn-outline-secondary calendar"
+                (click)="dp.toggle()"
+                type="button">
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button"
+        class="btn btn-outline-dark"
+        (click)=" ModalSaveMethod($event)">
+        Save
+      </button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary"
+    (click)="open(content)">
+    Popup using Angular and Bootstrap
+  </button>
+</div> -->
+  
+ 
+
